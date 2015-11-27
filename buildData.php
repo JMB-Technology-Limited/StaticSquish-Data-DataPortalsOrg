@@ -24,6 +24,15 @@ if (($handle = fopen($tempname, "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
     $id = $data['0'];
+    $id = str_replace("/","",$id);
+    $id = str_replace("''","",$id);
+    $id = str_replace("|","",$id);
+    $id = str_replace("_","-",$id);
+    $id = str_replace("--","-",$id);
+    $id = str_replace("--","-",$id);
+    $id = str_replace("--","-",$id);
+    $id = str_replace("--","-",$id);
+    $id = str_replace("--","-",$id);
 
     mkdir($dir. DIRECTORY_SEPARATOR. 'data' . DIRECTORY_SEPARATOR. $id);
 
