@@ -47,6 +47,8 @@ if (($handle = fopen($tempname, "r")) !== FALSE) {
 
     $tags = explode(" ",$data[8] );
 
+    $languages = explode(" ",$data[14] );
+
     $out = "[title]\n\n".
         $data[1].
         "\n\n[url]\n\n".
@@ -74,7 +76,7 @@ if (($handle = fopen($tempname, "r")) !== FALSE) {
         "\n\n[country]\n\n".
         $data[13].
         "\n\n[language]\n\n".
-        $data[14].
+        implode("\n", $languages).
         "\n\n[status]\n\n".
         $data[15].
         "\n\n[metadatacreated]\n\n".
